@@ -18,14 +18,18 @@
       <ul class="nav navbar-nav">
         <li class="inactive"><a href="#Login">Home</a></li>
         <li><a href="#/schedule">Schedule</a></li>
-        <li><a href="#/add-event">Add-Event</a></li>
-        <li><a href="#/add-sample">Add-Sample</a></li>
+        <li><a href="#/add-event">Add-Appointment</a></li>
+        <li><a href="#/add-contact">Add-Contact</a></li>
 
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right ng-hide" ng-hide="user">
         <li><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right ng-hide" ng-show="user" ng-controller="logoutController">
+        <li><a ng-click='logout()'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+
     </div>
   </nav>
 
@@ -42,7 +46,7 @@
   <script src="bower_components/angularfire/dist/angularfire.js"></script>
   <script src="bower_components/foundation/js/foundation.js"></script>
   <script src="./main.js"></script>
-  <script src="./services.js"></script>
+  <script src="./services/services.js"></script>
   <script src="./controllers.js"></script>
   <script src='./services/eventFactory.js'></script>
   <script src='./services/appointmentFactory.js'></script>
@@ -50,6 +54,7 @@
   <script src="./controller/logoutController.js"></script>
   <script src="./controller/registerController.js"></script>
   <script src="./controller/formController.js"></script>
-  <script src="./controller/listController.js"></script>
+  <script src="./controller/addContactController.js"></script>
+  <script src="./controller/addScheduleCtl.js"></script>
 </body>
 </html>

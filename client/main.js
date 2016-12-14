@@ -23,7 +23,8 @@ myApp.config(function ($routeProvider) {
     })
     .when('/schedule', {
       templateUrl: 'partials/schedule.html',
-      access: {restricted: true}
+      controller: 'scheduleCtl',
+      access: {restricted: false}
     })
     .when('/add-event', {
   	   templateUrl:'partials/add-appointment.html',
@@ -31,15 +32,14 @@ myApp.config(function ($routeProvider) {
   	   controllerAs:'eventCtl',
        access: {restricted: true}
      })
-     .when('/add-sample', {
-       templateUrl: 'partials/add-sample.html',
+     .when('/add-contact', {
+       templateUrl: 'partials/add-contact.html',
        controller: 'ContactsCtrl',
-       access: {restricted: false}
+       access: {restricted: true}
      })
     .otherwise({
       redirectTo: '/',
       access: {restricted: false}
-
     });
 });
 

@@ -1,6 +1,7 @@
 angular.module('myApp').controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
+    $scope.loggedIn = false;
     $scope.login = function () {
 
       // initial values
@@ -14,6 +15,7 @@ angular.module('myApp').controller('loginController',
           $location.path('/');
           $scope.disabled = false;
           $scope.loginForm = {};
+          $scope.loggedIn = true;
         })
         // handle error
         .catch(function () {
@@ -22,7 +24,5 @@ angular.module('myApp').controller('loginController',
           $scope.disabled = false;
           $scope.loginForm = {};
         });
-
     };
-
 }]);

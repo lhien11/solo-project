@@ -1,5 +1,5 @@
 {
-  "name": "mean-auth",
+  "name": "Hien-solo",
   "scripts": {
     "start": "node server/server.js"
   },

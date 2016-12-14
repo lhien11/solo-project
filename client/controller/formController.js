@@ -1,6 +1,7 @@
-angular.module('myApp').controller('formCtrl', ['eventFactory', function(eventFactory) {
-
+angular.module('myApp').controller('formCtrl', ['eventFactory', '$firebaseArray', function(eventFactory, $firebaseArray) {
 	var self = this;
+	var ref = new Firebase('https://solo-project-a866e.firebaseio.com/contacts');
+	this.appointment = $firebaseArray(ref)
 	this.eventForm = {};
 	//this.eventForm.date = new Date(2016,0,1);
     this.event = eventFactory.getAllEvents();
@@ -51,4 +52,6 @@ angular.module('myApp').controller('formCtrl', ['eventFactory', function(eventFa
         form.category = this.selectedOption.id;
         eventFactory.createEvent(angular.copy(form), this.event);
     }
+
+
 }])
