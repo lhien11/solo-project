@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>MEAN Auth</title>
+  <!-- styles -->
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/home">It's ME!</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="inactive"><a href="#Login">Home</a></li>
+        <li><a href="#/schedule">Schedule</a></li>
+        <li><a href="#/add-event">Add-Event</a></li>
+        <li><a href="#/add-sample">Add-Sample</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div ng-view></div>
+  </div>
+
+  <!-- scripts -->
+  <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/foundation/js/foundation.js"></script>
+  <script src="./main.js"></script>
+  <script src="./services.js"></script>
+  <script src="./controllers.js"></script>
+  <script src='./services/eventFactory.js'></script>
+  <script src='./services/appointmentFactory.js'></script>
+  <script src="./controller/loginController.js"></script>
+  <script src="./controller/logoutController.js"></script>
+  <script src="./controller/registerController.js"></script>
+  <script src="./controller/formController.js"></script>
+  <script src="./controller/listController.js"></script>
+</body>
+</html>
