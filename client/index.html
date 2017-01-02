@@ -3,10 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <title>MEAN Auth</title>
+  <title>Book Keeper</title>
   <!-- styles -->
   <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css" rel="stylesheet">
+  <link type="text/css" href="./bower_components/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+  <link rel='stylesheet' href='public/lib/fullcalendar/fullcalendar.css'>
+
+  <link rel="stylesheet" href="public/css/style.css">
+
 </head>
 <body>
 
@@ -17,17 +22,16 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="inactive"><a href="#Login">Home</a></li>
-        <li><a href="#/schedule">Schedule</a></li>
-        <li><a href="#/add-event">Add-Appointment</a></li>
+        <li><a href="#/schedule">Add-Appointment</a></li>
         <li><a href="#/add-contact">Add-Contact</a></li>
 
       </ul>
-      <ul class="nav navbar-nav navbar-right ng-hide" ng-hide="user">
+      <ul class="nav navbar-nav navbar-right" ng-controller="loginController" ng-show="!AuthService.isLoggedIn()">
         <li><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right ng-hide" ng-show="user" ng-controller="logoutController">
-        <li><a ng-click='logout()'><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <ul class="nav navbar-nav navbar-right" ng-controller="logoutController">
+        <li><a ng-click='logout()'><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
 
     </div>
@@ -48,13 +52,21 @@
   <script src="./main.js"></script>
   <script src="./services/services.js"></script>
   <script src="./controllers.js"></script>
-  <script src='./services/eventFactory.js'></script>
   <script src='./services/appointmentFactory.js'></script>
   <script src="./controller/loginController.js"></script>
   <script src="./controller/logoutController.js"></script>
   <script src="./controller/registerController.js"></script>
-  <script src="./controller/formController.js"></script>
   <script src="./controller/addContactController.js"></script>
   <script src="./controller/addScheduleCtl.js"></script>
+  <script src="./controller/calendarController.js"></script>
+
+  <script src='public/lib/jquery-ui/ui/jquery-ui.js'></script>
+  <script src='public/lib/fullcalendar/fullcalendar.js'></script>
+  <script src='public/lib/angular-ui-calendar/src/calendar.js'></script>
+
+
+
+
+</script>
 </body>
 </html>

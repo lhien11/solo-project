@@ -2,6 +2,7 @@ angular.module('myApp').controller('scheduleCtl', ['$scope', 'appointmentFactory
   var ref = new Firebase('https://solo-project-a866e.firebaseio.com/appointments');
   $scope.appointments = $firebaseArray(ref);
   //console.log("i'm in the schedule controller");
+
   $scope.showAddForm = function(){
     $scope.addFormShow = true;
   };

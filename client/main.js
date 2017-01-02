@@ -1,10 +1,11 @@
-var myApp = angular.module('myApp', ['ngRoute', 'firebase',
+var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'ui.calendar'
 ]);
 
 myApp.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html',
+      controller: 'calendarController',
       access: {restricted: false}
     })
     .when('/login', {
@@ -24,14 +25,9 @@ myApp.config(function ($routeProvider) {
     .when('/schedule', {
       templateUrl: 'partials/schedule.html',
       controller: 'scheduleCtl',
-      access: {restricted: false}
+      access: {restricted: true}
     })
-    .when('/add-event', {
-  	   templateUrl:'partials/add-appointment.html',
-  	   controller: 'formCtrl',
-  	   controllerAs:'eventCtl',
-       access: {restricted: true}
-     })
+
      .when('/add-contact', {
        templateUrl: 'partials/add-contact.html',
        controller: 'ContactsCtrl',
