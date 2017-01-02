@@ -6,6 +6,7 @@ angular.module('myApp')
       { title: "Business Conference", start: new Date(2014, 8, 22), end: new Date(2014, 8, 24) }
   ];
   console.log("Hereis calendar-controller");
+
   $scope.eventSources = [events];
 
   $scope.calOptions = {
@@ -13,7 +14,7 @@ angular.module('myApp')
       header: {
           left: 'month, agendaWeek, agendaDay',
           center: 'title',
-          right: 'today, next'
+          right: 'today prev, next'
       }
   };
 }]);

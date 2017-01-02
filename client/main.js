@@ -36,7 +36,7 @@ myApp.config(function ($routeProvider) {
 
      .when('/add-sample', {
        templateUrl: 'partials/appointmentSample.html',
-       controller: 'addAppointmentController',
+       controller: 'addAppointmentController as ac',
        access: {restricted: false}
      })
     .otherwise({

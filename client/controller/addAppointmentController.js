@@ -1,14 +1,13 @@
-myApp.controller('addAppointmentController', ['$scope', '$http', function($scope, $http) {
-
-
-    console.log("Here in People Controller");
+myApp.controller('addAppointmentController', ['$http', function($http) {
+    //console.log("Here in People Controller");
+    var vm = this;
 
 
     var refresh = function(){
       $http.get('/contactlist').success(function(response){
-        // console.log("I got the data I requested");
-        $scope.contactlist = response;
-        $scope.contact = "";
+        console.log("I got the data I requested", response);
+        vm.contactlist = response;
+        vm.contact = "";
       })}
 
     //     $http({
@@ -19,8 +18,8 @@ myApp.controller('addAppointmentController', ['$scope', '$http', function($scope
     //       // }
     //     }).then(function(response){
     //       console.log("I got the data I requested", response);
-    //       $scope.contactlist = response.data;
-    //       $scope.contact = "";
+    //       vm.contactlist = response.data;
+    //       vm.contact = "";
     //     },
     //     function(response){
     //       console.log("get error: ", response.data);
@@ -34,16 +33,16 @@ myApp.controller('addAppointmentController', ['$scope', '$http', function($scope
 
 
     // add person
-    $scope.addContact = function() {
+    vm.addContact = function() {
       console.log('add person');
-      //console.log($scope.contact);
-      $http.post('/contactlist', $scope.contact).success(function(response){
+      //console.log(vm.contact);
+      $http.post('/contactlist', vm.contact).success(function(response){
         console.log(response);
         refresh();
       });
     };
 
-    $scope.remove = function(id) {
+    vm.remove = function(id) {
       console.log('delete call in controller ');
       $http.delete('/contactlist/' + id)
         .then(function(req, res){
@@ -54,11 +53,11 @@ myApp.controller('addAppointmentController', ['$scope', '$http', function($scope
         });
     };
 
-    $scope.edit = function(id){
+    vm.edit = function(id){
       console.log('edit function in controller ', id);
       $http.get('/contactlist/' + id)
         .then(function(req, res){
-          $scope.contact = req.data;
+          vm.contact = req.data;
           //console.log(response);
           console.log("req in client is ", req);
         },
@@ -67,9 +66,9 @@ myApp.controller('addAppointmentController', ['$scope', '$http', function($scope
         });
     };
 
-    $scope.update = function(id){
-      console.log("update function: ", $scope.contact._id);
-      $http.put('/contactlist/' + $scope.contact._id, $scope.contact)
+    vm.update = function(id){
+      console.log("update function: ", vm.contact._id);
+      $http.put('/contactlist/' + vm.contact._id, vm.contact)
         .then(function(res, req){
           refresh();
         },
@@ -78,8 +77,8 @@ myApp.controller('addAppointmentController', ['$scope', '$http', function($scope
         });
     };
 
-    $scope.deselect = function(){
-      $scope.contact = "";
+    vm.deselect = function(){
+      vm.contact = "";
     }
 
 
