@@ -33,6 +33,12 @@ myApp.config(function ($routeProvider) {
        controller: 'ContactsCtrl',
        access: {restricted: true}
      })
+
+     .when('/add-sample', {
+       templateUrl: 'partials/appointmentSample.html',
+       controller: 'addAppointmentController',
+       access: {restricted: false}
+     })
     .otherwise({
       redirectTo: '/',
       access: {restricted: false}

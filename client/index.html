@@ -21,18 +21,16 @@
         <a class="navbar-brand" href="#/home">It's ME!</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="inactive"><a href="#Login">Home</a></li>
-        <li><a href="#/schedule">Add-Appointment</a></li>
-        <li><a href="#/add-contact">Add-Contact</a></li>
-
+        <li><a href="#/schedule">Appointment</a></li>
+        <li><a href="#/add-contact">Contact</a></li>
+        <li><a href="#/add-sample">Sample</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" ng-controller="loginController" ng-show="!AuthService.isLoggedIn()">
+      <ul class="nav navbar-nav navbar-right" ng-controller="loginController">
         <li><a href="#/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" ng-controller="logoutController">
         <li><a ng-click='logout()'><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
+
 
     </div>
   </nav>
@@ -59,6 +57,7 @@
   <script src="./controller/addContactController.js"></script>
   <script src="./controller/addScheduleCtl.js"></script>
   <script src="./controller/calendarController.js"></script>
+  <script src="./controller/addAppointmentController.js"></script>
 
   <script src='public/lib/jquery-ui/ui/jquery-ui.js'></script>
   <script src='public/lib/fullcalendar/fullcalendar.js'></script>
