@@ -5,7 +5,7 @@ myApp.controller('addAppointmentController', ['$http', function($http) {
 
     var refresh = function(){
       $http.get('/contactlist').success(function(response){
-        console.log("I got the data I requested", response);
+        //console.log("I got the data I requested", response);
         vm.contactlist = response;
         vm.contact = "";
       })}

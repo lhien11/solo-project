@@ -39,6 +39,11 @@ myApp.config(function ($routeProvider) {
        controller: 'addAppointmentController as ac',
        access: {restricted: false}
      })
+     .when('/add-book', {
+       templateUrl: 'partials/bookTime.html',
+       controller: 'bookController as newAppointment',
+       access: {restricted: false}
+     })
     .otherwise({
       redirectTo: '/',
       access: {restricted: false}

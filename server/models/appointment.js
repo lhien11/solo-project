@@ -1,14 +1,21 @@
-// appointment model
 var mongoose = require('mongoose');
-var moment = require('moment');
+var Schema = mongoose.Schema;
 
-var AppointmentSchema = new mongoose.Schema(
-  {
-    name: String,
-    phoneNumber: String,
-    timeZone: String,
-    time: {type : Date, index: true}
-  });
+// step 1: create the Schema
+var appointmentSchema = new Schema({
+  name: {type: String, required: true},
+  email: {type: String, required: true},
+  number: {type: Number, required: true},
+  date: {type: String, required: true},
+  time: {type: String, required: true}
+});
 
-var Appointment = mongoose.model('appointment', AppointmentSchema);
+appointmentSchema.pre('save', function(next) {
+  next();
+});
+
+// step 2 - create the model
+var Appointment = mongoose.model('Appointment', appointmentSchema);
+
+// step 3 - export our model
 module.exports = Appointment;

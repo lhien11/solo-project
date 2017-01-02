@@ -22,7 +22,7 @@ var app = express();
 // require routes
 var routes = require('./routes/api.js');
 var contacts = require('./routes/contacts');
-
+var appointments = require('./routes/appointments');
 
 // define middleware
 app.use(express.static(path.join(__dirname, '../client')));
@@ -47,7 +47,7 @@ passport.deserializeUser(User.deserializeUser());
 // routes
 app.use('/user/', routes);
 app.use('/contactlist', contacts);
-
+app.use('/appointment', appointments);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));

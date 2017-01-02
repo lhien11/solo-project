@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Appointment List App</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.name"></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.email"></td>
+        <td><input type="number" class="form-control" ng-model="newAppointment.contact.number"></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.date"></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.time"></td>
+
+        <td><button class="btn btn-primary" ng-click="newAppointment.addContact()">Add Appointment</button></td>
+        <td><button class="btn btn-info" ng-click="newAppointment.update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="newAppointment.deselect()">Clear</button></td>
+      </tr>
+      <tr ng-repeat="contact in newAppointment.appointment">
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.number}}</td>
+        <td>{{contact.date}}</td>
+        <td>{{contact.time}}</td>
+        <td><button class="btn btn-danger" ng-click="newAppointment.remove(contact._id)">Remove</button></td>
+        <td><button class="btn btn-warning" ng-click="newAppointment.edit(contact._id)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
