@@ -40,23 +40,27 @@ angular.module('myApp')
       appointmentFactory.getAppointment().success(function(response){
          //console.log('response ', response);
          data = response;
-         console.log("data", data);
-         console.log("data.name ", data[0].name);
-         console.log("data.date ", typeof(data[0].date));
-         console.log("data.time ", data[0].time);
+         //console.log(data.length);
+         for (var i = 0; i < data.length; i++){
+           var tmpDate = Date.parse(data[i].date);
+           var example = new Date(tmpDate);
+           //console.log(tmpDate);
+           //console.log(example);
+           $scope.events.push({
+             title: data[i].name,
+            //  start: new Date(y, m, 4, 8, 0), allDay: false
+            // start: , allDay: false
+            start: example, allDay: false
+           })
 
-        //  console.log(moment().toDate(date[0].date));
-         $scope.events.push({
-           title: data[0].name,
-           start: new Date(y, m, 4, 8, 0), allDay: false
-         })
+
+         }
 
 
 
     })};
 
-    data = someFunction();
-    console.log('data ', data);
+    someFunction();
 
 
 // $scope.remove(3);
