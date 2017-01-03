@@ -1,33 +1,13 @@
 myApp.factory('appointmentFactory', function($http){
+  console.log('I am in the appointmentFactory');
   var factory = {};
-  var appointments = [];
+  var appointment = [];
 
-  factory.getAppts = function(callback) {
-		$http.get('/getAppts').success(function(output) {
-			appointments = output;
-			callback(appointments);
-		});
-	}
+  factory.message = "This is a message from appointmentFactory";
 
-	factory.addAppt = function(info, callback) {
-		console.log(1);
-		$http.post('/addAppt', info).success(function(output) {
-			console.log(2);
-			console.log(output);
-			if('error' in output){
-				alert(output.error);
-			}
-			callback(appointments);
-		});
-	}
+  factory.getAppointment = function(){
+    return $http.get('/appointment');
+  }
 
-	factory.removeAppointment = function(info, callback) {
-		console.log("remove");
-		$http.post('/removeAppointment', info).success(function(output) {
-			callback(appointments);
-		});
-	}
-
-	return factory;
-
+  return factory;
 });

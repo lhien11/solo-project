@@ -2,23 +2,24 @@ myApp.controller('bookController', ['$http', 'appointmentFactory', function($htt
   console.log("Here in bookController");
   var vm = this;
 
+  var getAppointment = appointmentFactory.getAppointment().success(function(response){
+    vm.appointment = response;
+    vm.contact = "";
+  });
 
   var refresh = function(){
-    $http.get('/appointment').success(function(response){
-      //console.log("I got the data I requested", response);
-      vm.appointment = response;
-      vm.contact = "";
-    })}
-
-  refresh();
-
+  $http.get('/appointment').success(function(response){
+    //console.log("I got the data I requested", response);
+    vm.appointment = response;
+    vm.contact = "";
+  })}
 
   // add person
   vm.addContact = function() {
-    console.log('add person');
+    //console.log('add person');
     //console.log(vm.contact);
     $http.post('/appointment', vm.contact).success(function(response){
-      console.log(response);
+      //console.log(response);
       refresh();
     });
   };
@@ -61,9 +62,6 @@ myApp.controller('bookController', ['$http', 'appointmentFactory', function($htt
   vm.deselect = function(){
     vm.contact = "";
   }
-
-
-
 
 
 }])

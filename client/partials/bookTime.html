@@ -15,25 +15,38 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.name"></td>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.email"></td>
-        <td><input type="number" class="form-control" ng-model="newAppointment.contact.number"></td>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.date"></td>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.time"></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.name" required></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.email" required></td>
+        <td><input type="number" class="form-control" ng-model="newAppointment.contact.number" required></td>
+        <td><input type="date" class="form-control" ng-model="newAppointment.contact.date" required></td>
+        <td><select class="form-control" ng-model="newAppointment.contact.time" required>
+          <option value="">Time</option>
+          <option value="8:00 AM">8:00 AM</option>
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="11:00 AM">11:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="1:00 PM">1:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <select>
+          </td>
 
-        <td><button class="btn btn-primary" ng-click="newAppointment.addContact()">Add Appointment</button></td>
-        <td><button class="btn btn-info" ng-click="newAppointment.update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="newAppointment.deselect()">Clear</button></td>
-      </tr>
-      <tr ng-repeat="contact in newAppointment.appointment">
-        <td>{{contact.name}}</td>
-        <td>{{contact.email}}</td>
-        <td>{{contact.number}}</td>
-        <td>{{contact.date}}</td>
-        <td>{{contact.time}}</td>
-        <td><button class="btn btn-danger" ng-click="newAppointment.remove(contact._id)">Remove</button></td>
-        <td><button class="btn btn-warning" ng-click="newAppointment.edit(contact._id)">Edit</button></td>
-      </tr>
-    </tbody>
-  </table>
+          <td><button class="btn btn-primary" ng-click="newAppointment.addContact()">Add Appointment</button></td>
+          <td><button class="btn btn-info" ng-click="newAppointment.update()">Update</button></td>
+        </tr>
+        <tr ng-repeat="contact in newAppointment.appointment">
+          <td>{{contact.name}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.number}}</td>
+          <td>{{contact.date | date}}</td>
+          <td>{{contact.time}}</td>
+          <td><button class="btn btn-danger" ng-click="newAppointment.remove(contact._id)">Remove</button></td>
+          <td><button class="btn btn-warning" ng-click="newAppointment.edit(contact._id)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
 
-</div>
+  </div>
