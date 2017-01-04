@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var appointmentSchema = new Schema({
   name: {type: String, required: true},
   email: {type: String, required: true},
-  number: {type: Number, required: true},
+  number: {type: String, required: true},
   date: {type: Date, required: true},
   time: {type: String, required: true}
 });

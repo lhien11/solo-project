@@ -1,5 +1,5 @@
 myApp.factory('appointmentFactory', function($http){
-  console.log('I am in the appointmentFactory');
+  // console.log('I am in the appointmentFactory');
   var factory = {};
   var appointment = [];
 

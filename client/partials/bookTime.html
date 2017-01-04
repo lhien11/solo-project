@@ -15,10 +15,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.name" required></td>
-        <td><input type="text" class="form-control" ng-model="newAppointment.contact.email" required></td>
-        <td><input type="number" class="form-control" ng-model="newAppointment.contact.number" required></td>
-        <td><input type="date" class="form-control" ng-model="newAppointment.contact.date" required></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.name" placeholder="Name" required></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.email" placeholder="Email" required></td>
+        <td><input type="text" class="form-control" ng-model="newAppointment.contact.number" placeholder="555-555-555" required></td>
+        <td><input type="date" class="form-control" ng-model="newAppointment.contact.date" placeholder="Date.now()" required></td>
         <td><select class="form-control" ng-model="newAppointment.contact.time" required>
           <option value="">Time</option>
           <option value="8:00 AM">8:00 AM</option>

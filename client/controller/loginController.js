@@ -12,7 +12,7 @@ angular.module('myApp').controller('loginController',
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
-          $location.path('/schedule');
+          $location.path('/add-book');
           $scope.disabled = false;
           $scope.loginForm = {};
           $scope.loggedIn = true;
