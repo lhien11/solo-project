@@ -18,21 +18,22 @@
         <td><input type="text" class="form-control" ng-model="newAppointment.contact.name" placeholder="Name" required></td>
         <td><input type="text" class="form-control" ng-model="newAppointment.contact.email" placeholder="Email" required></td>
         <td><input type="text" class="form-control" ng-model="newAppointment.contact.number" placeholder="555-555-555" required></td>
-        <td><input type="date" class="form-control" ng-model="newAppointment.contact.date" placeholder="Date.now()" required></td>
-        <td><select class="form-control" ng-model="newAppointment.contact.time" required>
-          <option value="">Time</option>
-          <option value="8:00 AM">8:00 AM</option>
-          <option value="9:00 AM">9:00 AM</option>
-          <option value="10:00 AM">10:00 AM</option>
-          <option value="11:00 AM">11:00 AM</option>
-          <option value="12:00 PM">12:00 PM</option>
-          <option value="1:00 PM">1:00 PM</option>
-          <option value="2:00 PM">2:00 PM</option>
-          <option value="3:00 PM">3:00 PM</option>
-          <option value="4:00 PM">4:00 PM</option>
-          <option value="5:00 PM">5:00 PM</option>
+        <td><input type="date" class="form-control" ng-model="newAppointment.contact.date" placeholder="2013-09-02" required></td>
+        <td>
+          <select class="form-control" ng-model="newAppointment.contact.time" required>
+            <option value="">Time</option>
+            <option value="8:00 AM">8:00 AM</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="5:00 PM">5:00 PM</option>
           <select>
-          </td>
+        </td>
 
           <td><button class="btn btn-primary" ng-click="newAppointment.addContact()">Add Appointment</button></td>
           <td><button class="btn btn-info" ng-click="newAppointment.update()">Update</button></td>

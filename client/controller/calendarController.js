@@ -7,19 +7,17 @@ angular.module('myApp')
   var y = date.getFullYear();
   var data;
 
-  $scope.events = [
+  // this is needed to add events to calendar
+  $scope.events = [];
 
-  ];
 
-
-  var someFunction = function(){
+  var addToCalendar = function(){
     appointmentFactory.getAppointment().success(function(response){
       data = response;
 
       for (var i = 0; i < data.length; i++){
         var tmpDate = Date.parse(data[i].date);
         var example = new Date(tmpDate);
-
 
          if(data[i].time == "8:00 AM"){
            example.setHours(8);
@@ -52,6 +50,7 @@ angular.module('myApp')
            example.setHours(17);
          }
 
+        // to add events to the calendar
         $scope.events.push({
           title: data[i].name,
           start: example, allDay: false
@@ -59,7 +58,7 @@ angular.module('myApp')
       }
     })};
 
-    someFunction();
+    addToCalendar();
 
     /* event sources array */
     $scope.eventSources = [$scope.events];

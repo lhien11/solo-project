@@ -22,17 +22,6 @@ myApp.config(function ($routeProvider) {
       controller: 'registerController',
       access: {restricted: false}
     })
-    .when('/schedule', {
-      templateUrl: 'partials/schedule.html',
-      controller: 'scheduleCtl',
-      access: {restricted: true}
-    })
-
-     .when('/add-contact', {
-       templateUrl: 'partials/add-contact.html',
-       controller: 'ContactsCtrl',
-       access: {restricted: true}
-     })
 
      .when('/add-sample', {
        templateUrl: 'partials/appointmentSample.html',

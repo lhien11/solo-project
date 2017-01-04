@@ -1,5 +1,4 @@
 myApp.controller('bookController', ['$http', 'appointmentFactory', function($http, appointmentFactory){
-  console.log("Here in bookController");
   var vm = this;
 
   var getAppointment = appointmentFactory.getAppointment().success(function(response){
@@ -16,16 +15,12 @@ myApp.controller('bookController', ['$http', 'appointmentFactory', function($htt
 
   // add person
   vm.addContact = function() {
-    //console.log('add person');
-    //console.log(vm.contact);
     $http.post('/appointment', vm.contact).success(function(response){
-      //console.log(response);
       refresh();
     });
   };
 
   vm.remove = function(id) {
-    console.log('delete call in controller ');
     $http.delete('/appointment/' + id)
       .then(function(req, res){
         refresh();
@@ -40,7 +35,6 @@ myApp.controller('bookController', ['$http', 'appointmentFactory', function($htt
     $http.get('/appointment/' + id)
       .then(function(req, res){
         vm.contact = req.data;
-        //console.log(response);
         console.log("req in client is ", req);
       },
       function(req, res){
